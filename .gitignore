@@ -1,32 +1,27 @@
-# Prerequisites
-*.d
+﻿################################################################################
+# Ten plik .gitignore został utworzony automatycznie przez Microsoft(R) Visual Studio.
+################################################################################
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
+/.gitignore
+/.vs
+/x64/Debug
+/obj
+/bin/app.publish
+/bin/Release/app.publish
+/bin/RapChessCs.application
+/bin/RapChessCs.exe.config
+/bin/RapChessCs.exe.manifest
+/bin/RapChessCs.pdb
+/RapChessCs.csproj.user
+*.config
+*.pdb
+*.manifest
+*.ini
+*.sarif
 *.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+*.pdb
+*.ilk
+*.tlog
+*.log
+*.recipe
+*.txt
