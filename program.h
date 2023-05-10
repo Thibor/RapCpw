@@ -156,8 +156,7 @@ extern schronos chronos;
 struct s_options
 {
 	bool ponder = true;
-	int draw_opening = -10; // middlegame draw value
-	int draw_endgame = 0;   // endgame draw value
+	int contempt = 10;
 	int aspiration = 50;  // size of the aspiration window ( val-ASPITATION, val+ASPIRATION )
 	int elo = 2500;
 	int eloMin = 1000;

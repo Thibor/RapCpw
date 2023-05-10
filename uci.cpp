@@ -120,12 +120,8 @@ void UciCommand(char* command)
 		}
 		if (!strcmp(name, "aspiration"))
 			converted = sscanf(value, "%d", &options.aspiration);
-		if (!strcmp(name, "draw_opening"))
-			converted = sscanf(value, "%d", &options.draw_opening);
-		if (!strcmp(name, "draw_endgame"))
-			converted = sscanf(value, "%d", &options.draw_endgame);
-		if (!strcmp(name, "draw_endgame"))
-			converted = sscanf(value, "%d", &options.draw_endgame);
+		if (!strcmp(name, "contempt"))
+			converted = sscanf(value, "%d", &options.contempt);
 		if (!strcmp(name, "UCI_Elo"))
 			if (sscanf(value, "%d", &options.elo) > 0)
 				setDefaultEval();

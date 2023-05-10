@@ -27,4 +27,4 @@ void ReorderMoves(smove * m, U8 mcount, U8 ply);
 void info_pv(int val);
 unsigned int countNps(unsigned int nodes, unsigned int time);
 void ageHistoryTable();
-int contempt();
+int Contempt();

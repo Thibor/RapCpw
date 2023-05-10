@@ -577,7 +577,7 @@ int Search(U8 depth, U8 ply, int alpha, int beta, int can_null, int is_pv)
 	if (depth < 1)
 		return Quiesce(alpha, beta);
 	sd.nodes++;
-	if (isRepetition()) return contempt();
+	if (isRepetition()) return Contempt();
 	/**************************************************************************
 	*  Read the transposition table. We may have already searched current     *
 	*  position. If depth was sufficient, then we might use the score         *
@@ -868,7 +868,7 @@ int Search(U8 depth, U8 ply, int alpha, int beta, int can_null, int is_pv)
 		if (flagInCheck)
 			alpha = -INF + ply;
 		else
-			alpha = contempt();
+			alpha = Contempt();
 	}
 	/* tt_save() does not save anything when the search is timed out */
 	tt_save(depth, alpha, tt_flag, bestmove);
@@ -993,13 +993,13 @@ void ageHistoryTable()
 *  play for a  draw  or strive to avoid it.                                   *
 ******************************************************************************/
 
-int contempt()
+int Contempt()
 {
-	int value = board.piece_material[sd.myside] < e.ENDGAME_MAT ? options.draw_endgame : options.draw_opening;
+	int value = board.piece_material[sd.myside] < e.ENDGAME_MAT ? 0 : options.contempt;
 	if (board.stm == sd.myside)
-		return value;
-	else
 		return -value;
+	else
+		return value;
 }
 
 void CheckInput()
