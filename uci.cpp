@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void UciGo(char* command) {
+static void UciGo(char* command) {
 	chronos.ponder = false;
 	chronos.post = true;
 	chronos.timeOver = false;
@@ -152,6 +152,8 @@ void UciCommand(char* command)
 		util_perft(command);
 	if (!strcmp(command, "eval"))
 		printEval();
+	if (!strcmp(command, "print"))
+		PrintBoard();
 }
 
 void UciLoop() {

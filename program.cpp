@@ -217,7 +217,7 @@ SQ convert_a_0x88(char* a)
 }
 
 void PrintWelcome() {
-	cout << "RapCpw ver. " << YEAR <<"-"<< MONTH <<"-" << DAY << endl;
+	cout << "RapCpw " << YEAR <<"-"<< MONTH <<"-" << DAY << endl;
 }
 
 void printStats(unsigned int time,unsigned long long nodes,unsigned long long qnodes)

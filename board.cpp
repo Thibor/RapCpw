@@ -293,31 +293,3 @@ int board_loadFromFen(char* fen) {
 
 	return 0;
 }
-
-
-void board_display() {
-
-	S8 sq;
-
-	char parray[3][7] = { {'K','Q','R','B','N','P'},
-		{'k','q','r','b','n','p'},
-		{ 0 , 0 , 0 , 0 , 0,  0, '.'}
-	};
-
-	printf("   a b c d e f g h\n\n");
-
-	for (S8 row = 7; row >= 0; row--) {
-
-		printf("%d ", row + 1);
-
-		for (S8 col = 0; col < 8; col++) {
-			sq = SET_SQ(row, col);
-			printf(" %c", parray[board.color[sq]][board.pieces[sq]]);
-		}
-
-		printf("  %d\n", row + 1);
-
-	}
-
-	printf("\n   a b c d e f g h\n\n");
-}

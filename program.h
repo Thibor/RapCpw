@@ -268,6 +268,7 @@ void processIniString(char line[250]);
 int eval(int alpha, int beta, int use_hash);
 int isPiece(U8 color, U8 piece, SQ sq);
 int getTropism(int sq1, int sq2);
+void PrintBoard();
 void printEval();
 void printEvalFactor(int wh, int bl);
 
@@ -289,12 +290,26 @@ void util_bench(char* command);
 void GetPv(char* pv);
 
 unsigned int gettime();
-bool time_uci_ponderhit();
-void time_uci_go(char* command);
 void time_calc_movetime();
 bool time_stop_root();
 bool time_stop();
 bool isRepetition();
-void printWelcome();
 void printSearchHeader();
 void printStats(unsigned int time,unsigned long long nodes,unsigned long long qnodes);
+
+/* king safety*/
+int wKingShield();
+int bKingShield();
+
+/* pawn structure */
+int getPawnScore();
+int evalPawnStructure();
+int EvalPawn(SQ sq, S8 side);
+void EvalKnight(SQ sq, S8 side);
+void EvalBishop(SQ sq, S8 side);
+void EvalRook(SQ sq, S8 side);
+void EvalQueen(SQ sq, S8 side);
+bool isPawnSupported(SQ sq, S8 side);
+
+/* pattern detection */
+void blockedPieces(int side);

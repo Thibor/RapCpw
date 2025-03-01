@@ -109,7 +109,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="board.h" />
-    <ClInclude Include="eval.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="movegen.h" />
     <ClInclude Include="search.h" />
