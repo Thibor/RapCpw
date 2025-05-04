@@ -11,7 +11,6 @@ int ptt_size = 0;
 int ett_size = 0;
 U64 tt_used = 0;
 
-/* function taken from Sungorus chess engine */
 U64 rand64() {
 	static U64 next = 1;
 
