@@ -4,7 +4,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <string>
-//#include <xmmintrin.h>
+#include "windows.h"
 
 #define INF 10000
 #define INVALID 32767
@@ -314,4 +314,128 @@ bool isPawnSupported(SQ sq, S8 side);
 /* pattern detection */
 void blockedPieces(int side);
 
+//uci
 void UciLoop();
+//input
+bool GetInput(std::string& s);
+int InputInit();
+//movegen
+void movegen_push(char from, char to, U8 piece_from, U8 piece_cap, char flags);
+void movegen_push_qs(char from, char to, U8 piece_from, U8 piece_cap, char flags);
+void movegen_pawn_move(SQ sq, bool promotion_only);
+void movegen_pawn_capt(SQ sq);
+//search
+void search_iterate();
+int search_widen(int depth, int val);
+void search_clearDriver();
+int search_root(U8 depth, int alpha, int beta);
+int Search(U8 depth, U8 ply, int alpha, int beta, int can_null, int is_pv);
+void setKillers(smove m, U8 ply);
+void ReorderMoves(smove* m, U8 mcount, U8 ply);
+void info_pv(int val);
+unsigned int countNps(unsigned int nodes, unsigned int time);
+void ageHistoryTable();
+int Contempt();
+
+//transposition
+struct szobrist {
+	U64 piecesquare[6][2][128];
+	U64 color;
+	U64 castling[16];
+	U64 ep[128];
+};
+extern szobrist zobrist;
+
+enum ettflag {
+	TT_EXACT,
+	TT_ALPHA,
+	TT_BETA
+};
+
+struct stt_entry {
+	U64  hash;
+	int  val;
+	U8	 depth;
+	U8   flags;
+	U8   bestmove;
+};
+extern stt_entry* tt;
+
+struct spawntt_entry {
+	U64  hash;
+	int  val;
+};
+extern class spawntt_entry* ptt;
+
+struct sevaltt_entry {
+	U64 hash;
+	int val;
+};
+extern sevaltt_entry* ett;
+
+extern U64 tt_size;
+extern int ptt_size;
+extern int ett_size;
+
+U64 rand64();
+int tt_init();
+int tt_setsize(int size);
+int tt_probe(U8 depth, int alpha, int beta, char* best);
+void tt_save(U8 depth, int val, char flags, char best);
+int ttpawn_setsize(int size);
+int ttpawn_probe();
+void ttpawn_save(int val);
+int tteval_setsize(int size);
+int tteval_probe();
+void tteval_save(int val);
+U64 ttPermill();
+//board
+/* row identifiers */
+#define ROW_1   ( A1 >> 4 )
+#define ROW_2   ( A2 >> 4 )
+#define ROW_3   ( A3 >> 4 )
+#define ROW_4   ( A4 >> 4 )
+#define ROW_5   ( A5 >> 4 )
+#define ROW_6   ( A6 >> 4 )
+#define ROW_7   ( A7 >> 4 )
+#define ROW_8   ( A8 >> 4 )
+
+/* column identifiers */
+#define COL_A  ( A1 & 7 )
+#define COL_B  ( B1 & 7 )
+#define COL_C  ( C1 & 7 )
+#define COL_D  ( D1 & 7 )
+#define COL_E  ( E1 & 7 )
+#define COL_F  ( F1 & 7 )
+#define COL_G  ( G1 & 7 )
+#define COL_H  ( H1 & 7 )
+
+/* vectors */
+#define NORTH  16
+#define NN    ( NORTH + NORTH )
+#define SOUTH  -16
+#define SS    ( SOUTH + SOUTH )
+#define EAST  1
+#define WEST  -1
+#define NE    17
+#define SW    -17
+#define NW    15
+#define SE    -15
+
+/* generate square number from row and column */
+#define SET_SQ(row,col) (row * 16 + col)
+
+/* does a given number represent a square on the board? */
+#define IS_SQ(x)  ( (x) & 0x88 ) ? (0) : (1)
+
+/* get board column that a square is part of */
+#define COL(sq)  ( (sq) & 7 )
+
+/* get board row that a square is part of */
+#define ROW(sq)  ( (sq) >> 4 )
+
+/* determine if two squares lie on the same column */
+#define SAME_COL(sq1,sq2) ( ( COL(sq1) == COL(sq2) ) ? (1) : (0) )
+
+/* determine if two squares lie in the same row */
+#define SAME_ROW(sq1,sq2) ( ( ROW(sq1) == ROW(sq2) ) ? (1) : (0) )

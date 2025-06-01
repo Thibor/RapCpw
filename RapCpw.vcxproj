@@ -108,12 +108,7 @@
     <ClCompile Include="transposition.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="board.h" />
-    <ClInclude Include="input.h" />
-    <ClInclude Include="movegen.h" />
-    <ClInclude Include="search.h" />
     <ClInclude Include="program.h" />
-    <ClInclude Include="transposition.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

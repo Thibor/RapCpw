@@ -1,4 +1,4 @@
-#include "movegen.h"
+#include "program.h"
 
 U8 movecount;
 

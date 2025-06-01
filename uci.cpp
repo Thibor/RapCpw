@@ -1,6 +1,5 @@
 
 #include "program.h"
-#include "transposition.h"
 
 using namespace std;
 

@@ -1,4 +1,4 @@
-#include "board.h"
+#include "program.h"
 
 sboard board = {};
 

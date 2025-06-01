@@ -1,4 +1,4 @@
-#include "transposition.h"
+#include "program.h"
 
 szobrist zobrist;
 

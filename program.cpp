@@ -1,10 +1,5 @@
 #include "program.h"
 
-
-#include "transposition.h"
-#include "board.h"
-#include "input.h"
-
 using namespace std;
 
 #define MONTH (\
