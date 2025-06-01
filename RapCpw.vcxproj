@@ -114,7 +114,6 @@
     <ClInclude Include="search.h" />
     <ClInclude Include="program.h" />
     <ClInclude Include="transposition.h" />
-    <ClInclude Include="uci.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

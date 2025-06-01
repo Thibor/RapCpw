@@ -4,7 +4,6 @@
 #include "transposition.h"
 #include "board.h"
 #include "input.h"
-#include "uci.h"
 
 using namespace std;
 

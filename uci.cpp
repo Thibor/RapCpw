@@ -1,5 +1,6 @@
 
-#include "uci.h"
+#include "program.h"
+#include "transposition.h"
 
 using namespace std;
 

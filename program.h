@@ -2,9 +2,9 @@
 
 #include <cassert>
 #include <iostream>
-
 #include <stdio.h>
-#include <xmmintrin.h>
+#include <string>
+//#include <xmmintrin.h>
 
 #define INF 10000
 #define INVALID 32767
@@ -313,3 +313,5 @@ bool isPawnSupported(SQ sq, S8 side);
 
 /* pattern detection */
 void blockedPieces(int side);
+
+void UciLoop();
