@@ -1264,25 +1264,29 @@ int isPiece(U8 color, U8 piece, SQ sq)
 }
 
 void PrintBoard() {
-	int r, f, sq;
-	string uw = "PNBRQKXX";
-	string ub = "pnbrqkxx";
-	cout << "    a b c d e f g h" << endl;
-	cout << "   ----------------" << endl;
-	for (r = 7; r >= 0; r--) {
-		printf(" %d|", r + 1);
-		for (f = 0; f <= 7; f++) {
-			sq = SET_SQ(r, f);
+	string uw = "KQRBNAXX";
+	string ub = "kqrbnaxx";
+	string s = "   +---+---+---+---+---+---+---+---+";
+	string t = "     A   B   C   D   E   F   G   H";
+	cout << t << endl;
+	for (int r = 7; r >= 0; r--) {
+		cout << s << endl;
+		printf(" %d |", r + 1);
+		for (int f = 0; f <= 7; f++) {
+			int sq = SET_SQ(r, f);
 			int piece = board.pieces[sq];
 			if (piece == PIECE_EMPTY)
-				printf(" .");
+				printf("   |");
 			else if (board.color[sq] == WHITE)
-				printf(" %c", uw[piece & 0x7]);
+				printf(" %c |", uw[piece & 0x7]);
 			else if (board.color[sq] == BLACK)
-				printf(" %c", ub[piece & 0x7]);
+				printf(" %c |", ub[piece & 0x7]);
 		}
 		cout << endl;
 	}
+
+	cout << s << endl;
+	cout << t << endl;
 }
 
 /******************************************************************************
